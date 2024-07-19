@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monster AR - Nagasaki University</title>
   <script src="https://apps.8thwall.com/xrweb.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
   <style>
     body, html { margin: 0; padding: 0; overflow: hidden; }
     canvas { width: 100%; height: 100%; }
@@ -29,6 +31,8 @@
         const loader = new THREE.GLTFLoader();
         loader.load('https://www.8thwall.com/nagasaki/monster-ar-nagasaki-university/assets/mm_project.glb', (gltf) => {
           scene.add(gltf.scene);
+        }, undefined, (error) => {
+          console.error('An error happened while loading the model', error);
         });
 
         // Add lighting to the scene
